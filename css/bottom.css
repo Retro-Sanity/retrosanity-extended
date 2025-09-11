@@ -1,0 +1,32 @@
+.bottom {
+  background: #0a0a0a;
+  padding: 30px 0;
+}
+
+.bottom-container {
+  width: 1100px;
+  color: #fff;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 1100px) {
+  .bottom-container {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+.bottom-col {
+  width: 25%;
+}
+
+@media screen and (max-width: 1100px) {
+  .bottom-col {
+    padding: 0 32px;
+    margin-bottom: 8px;
+  }
+}

@@ -1,0 +1,91 @@
+.footer {
+  background: #0a0a0a;
+}
+
+
+.footer-container {
+  display: flex;
+  width: 1100px;
+  margin: auto;
+  padding: 50px 0;
+}
+
+@media screen and (max-width: 1100px) {
+  .footer-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .footer-container {
+    flex-direction: column;
+  }
+}
+
+.footer-col {
+  flex: 1;
+}
+
+@media screen and (max-width: 1100px) {
+  .footer-col{
+    padding: 0 32px;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .footer-col{
+    margin-bottom: 30px;
+  }
+}
+
+.footer-about {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  position: relative;
+}
+
+.footer-signature {
+  margin-top: 20px;
+  color: #ffffff;
+  font-family: "Kristi", Sans-serif;
+  font-size: 30px;
+}
+
+.footer-navigation {
+  li {
+    margin: 0 0 10px 0;
+	  
+	  a {
+		  color: #fff;
+	  }
+  }
+
+	
+  .nav-menu {
+    display: block;
+  }
+}
+
+.footer-social {
+  background: #8224e3;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 3px;
+
+  img {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.footer-social:hover {
+  background: #6a1ccf;
+}
