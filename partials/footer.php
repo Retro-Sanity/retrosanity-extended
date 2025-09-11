@@ -10,7 +10,7 @@
     </div>
     <div class="footer-col">
       <div class="footer-navigation">
-        <?
+        <?php
         wp_nav_menu(array(
           'theme_location' => 'secondary',
           'container' => 'nav',
@@ -22,7 +22,7 @@
     </div>
     <div class="footer-col">
       <div class="footer-navigation">
-        <?
+        <?php
         wp_nav_menu(array(
           'theme_location' => 'tertiary',
           'container' => 'nav',
