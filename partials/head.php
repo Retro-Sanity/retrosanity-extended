@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri() . '/css/bottom.css' ?>" />
 
   <!-- Custom JS -->
-  <?
+  <?php
   wp_enqueue_script(
     'sidenav',
     get_template_directory_uri() . '/javascript/sidenav.js',
