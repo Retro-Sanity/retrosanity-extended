@@ -1,16 +1,6 @@
 <?php
 
-add_action('customize_preview_init', function () {
-  wp_enqueue_script(
-    'cd_customizer',
-    get_template_directory_uri() . '/javascript/customizer.js',
-    array('jquery', 'customize-preview'),
-    '',
-    true
-  );
-});
-
-// Register heading menu 
+defined('ABSPATH') || exit;
 
 add_action('customize_register', 'cd_customizer_settings');
 function cd_customizer_settings($wp_customize)
@@ -23,28 +13,30 @@ function cd_customizer_settings($wp_customize)
     'priority'   => 30,
   ));
 
-  // Body bg color setting 
+  // Header bg color setting
 
   $wp_customize->add_setting('background_color', array(
-    'default'     => '#fff',
-    'transport'   => 'refresh',
+    'default'           => '#fff',
+    'transport'         => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color',
   ));
 
   $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'background_color', array(
-    'label'        => 'Heading Background Color',
+    'label'      => 'Heading Background Color',
     'section'    => 'cd_colors',
     'settings'   => 'background_color',
   )));
 
-  // Navigation text color 
+  // Navigation text color
 
   $wp_customize->add_setting('text_color', array(
-    'default'     => '#000',
-    'transport'   => 'refresh',
+    'default'           => '#000',
+    'transport'         => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color',
   ));
 
   $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'text_color', array(
-    'label'        => 'Navigation Text Color',
+    'label'      => 'Navigation Text Color',
     'section'    => 'cd_colors',
     'settings'   => 'text_color',
   )));
@@ -52,52 +44,56 @@ function cd_customizer_settings($wp_customize)
   // Navigation underline hover color
 
   $wp_customize->add_setting('hover_color', array(
-    'default'     => '#1E123A',
-    'transport'   => 'refresh',
+    'default'           => '#1E123A',
+    'transport'         => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color',
   ));
 
   $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'hover_color', array(
-    'label'        => 'Navigation underline hover Color',
+    'label'      => 'Navigation underline hover Color',
     'section'    => 'cd_colors',
     'settings'   => 'hover_color',
   )));
 
   // Site logo/left header image
   $wp_customize->add_setting('logo_image', array(
-    'default' => '',
-    'transport' => 'refresh',
+    'default'           => '',
+    'transport'         => 'refresh',
     'sanitize_callback' => 'esc_url_raw',
   ));
 
   $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'logo_image', array(
-    'label' => __('Logo Image'),
-    'section' => 'cd_colors',
+    'label'    => __('Logo Image', 'retrosanity'),
+    'section'  => 'cd_colors',
     'settings' => 'logo_image',
   )));
 }
 
-// Css styling that can be dynamically changed 
+// Css styling that can be dynamically changed
 add_action('wp_head', 'cd_customizer_css');
 function cd_customizer_css()
 {
+  $background_color = sanitize_hex_color(get_theme_mod('background_color', '#43C6E4'));
+  $text_color       = sanitize_hex_color(get_theme_mod('text_color', '#43C6E4'));
+  $hover_color      = sanitize_hex_color(get_theme_mod('hover_color', '#43C6E4'));
   ?>
-  <style type="text/css">
+  <style>
     .header {
-      background: <?php echo get_theme_mod('background_color', '#43C6E4'); ?>;
+      background: <?php echo esc_html($background_color); ?>;
     }
 
     .nav-menu>li>a {
-      color: <?php echo get_theme_mod('text_color', '#43C6E4'); ?>;
+      color: <?php echo esc_html($text_color); ?>;
     }
 
     .toggle span,
     .toggle span:before,
     .toggle span:after {
-      background: <?php echo get_theme_mod('text_color', '#43C6E4'); ?>;
+      background: <?php echo esc_html($text_color); ?>;
     }
 
     .nav-menu>li>a::after {
-      background: <?php echo get_theme_mod('hover_color', '#43C6E4'); ?>;
+      background: <?php echo esc_html($hover_color); ?>;
     }
   </style>
   <?php

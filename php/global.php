@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') || exit;
+
 //WordPress automatically out of fullscreen page editing
 if (is_admin()) {
   function jba_disable_editor_fullscreen_by_default()
@@ -9,16 +11,3 @@ if (is_admin()) {
   }
   add_action('enqueue_block_editor_assets', 'jba_disable_editor_fullscreen_by_default');
 }
-
-// Register nav menu's
-add_action('after_setup_theme', function() {
-  register_nav_menu('primary', __('Hoofd Menu', 'retrosanity'));
-});
-
-add_action('after_setup_theme', function () {
-  register_nav_menu('secondary', __('Footer menu 1', 'retrosanity'));
-});
-
-add_action('after_setup_theme', function () {
-  register_nav_menu('tertiary', __('Footer menu 2', 'retrosanity'));
-});

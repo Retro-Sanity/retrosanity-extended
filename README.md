@@ -43,13 +43,14 @@ Three menu locations registered:
 - Auto-disables WordPress fullscreen editor mode
 - Social icons (WhatsApp, Instagram) in footer
 - Logo customization via Customizer (with fallback)
-- Live preview in Customizer
 
 ## Structure
 
-- Modular partials (header, footer, bottom)
+- Standard `header.php` / `footer.php` so `get_header()` / `get_footer()` work everywhere (required by Elementor templates)
+- Modular partials (header navigation, footer, bottom) loaded via `get_template_part()`
+- All CSS/JS enqueued through `wp_enqueue_scripts` with cache-busting versions
 - Separate CSS files per section
-- Minimal JavaScript (sidenav toggle, customizer preview)
+- Minimal JavaScript (vanilla sidenav toggle, no jQuery on the frontend)
 
 ## Todo
 

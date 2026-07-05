@@ -33,8 +33,8 @@
       </div>
     </div>
     <div class="footer-col">
-      <a class="footer-social" href="https://wa.me/31629875259"><img src="<?php echo get_template_directory_uri() . '/images/whatsapp.svg' ?>" alt="Default Logo"></a>
-      <a class="footer-social" href="https://www.instagram.com/ictmannetje/"><img src="<?php echo get_template_directory_uri() . '/images/instagram.svg' ?>" alt="Default Logo"></a>
+      <a class="footer-social" href="https://wa.me/31629875259"><img src="<?php echo esc_url(get_template_directory_uri() . '/images/whatsapp.svg'); ?>" alt="WhatsApp"></a>
+      <a class="footer-social" href="https://www.instagram.com/ictmannetje/"><img src="<?php echo esc_url(get_template_directory_uri() . '/images/instagram.svg'); ?>" alt="Instagram"></a>
     </div>
   </div>
 </div>

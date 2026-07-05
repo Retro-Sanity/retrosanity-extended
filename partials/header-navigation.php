@@ -4,11 +4,10 @@
   <div class="header-logo">
     <?php
     $logo_image_url = get_theme_mod('logo_image', '');
-    if (!empty($logo_image_url)) {
-      echo '<a href="/"><img src="' . esc_url($logo_image_url) . '" alt="Logo"></a>';
-    } else {
-      echo '<a href="/"><img src="' . get_template_directory_uri() . '/images/ict-mannetje-logo.png" alt="Default Logo"></a>';
+    if (empty($logo_image_url)) {
+      $logo_image_url = get_template_directory_uri() . '/images/ict-mannetje-logo.png';
     }
+    echo '<a href="' . esc_url(home_url('/')) . '"><img src="' . esc_url($logo_image_url) . '" alt="' . esc_attr(get_bloginfo('name')) . '"></a>';
     ?>
   </div>
   <!-- Tablet/Desktop navigation -->
